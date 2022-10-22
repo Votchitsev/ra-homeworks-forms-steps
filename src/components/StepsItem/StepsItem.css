@@ -1,0 +1,25 @@
+.steps_item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+
+.steps_item__date {
+  width: 40%;
+}
+
+.steps_item__distance {
+  width: 40%;
+}
+
+.steps_item__delete {
+  width: 20px;
+  height: 20px;
+  background-image: url(./close.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}

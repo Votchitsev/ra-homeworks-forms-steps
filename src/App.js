@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import { useState } from 'react'; 
 import './App.css';
+import Form from './components/Form/Form'
+import StepsLine from './components/StepsLine/StepsLine';
 
 function App() {
+
+  let [steps, setSteps] = useState([]);
+
+  const addStep = (date, distance, isDelete, deleteItem) => {
+    if (isDelete) {
+      setSteps(
+        steps = [...steps.slice(0, deleteItem), ...steps.slice(deleteItem + 1)]
+      )
+      return;
+    }
+    setSteps(steps = [...steps, {
+      date: date.current.value,
+      distance: distance.current.value,
+    }])
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form setSteps={setSteps} addStep={addStep}/>
+      <StepsLine steps={ steps } addStep={addStep} />
     </div>
   );
 }

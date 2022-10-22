@@ -1,0 +1,9 @@
+.steps_line {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  margin: 50px auto;
+  height: 50vh;
+  border: 1px dashed black;
+  border-radius: 25px;
+}
