@@ -6,9 +6,10 @@ function Form( { addStep }) {
   const date = useRef();
   const distance = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addStep(date, distance);
+    
+    await addStep(date, distance);
     date.current.value = '';
     distance.current.value = '';
 };
@@ -16,7 +17,7 @@ function Form( { addStep }) {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <input type="date" className="input_date input" ref={date} placeholder='ДД.ММ.ГГГГ' />
-      <input type="text" className="input_distance input" ref={distance} placeholder='КМ' />
+      <input type="number" step="0.1" className="input_distance input" ref={distance} placeholder='КМ' />
       <input type="submit" value={'OK'} />
     </form>
   )
